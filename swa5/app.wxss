@@ -1,0 +1,91 @@
+/**app.wxss**/
+/* 导入 KaTeX 样式 - 等构建npm后再取消注释 */
+@import "./miniprogram_npm/@rojer/katex-mini/index.wxss";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+/* LaTeX样式控制 */
+.latex-container, .latex-preview, .container-latex rich-text {
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+  box-sizing: border-box;
+  overflow-x: scroll;
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+}
+
+/* KaTeX 公式适配微信小程序环境 */
+katex, .katex {
+  display: block !important;
+  max-width: 100% !important;
+  overflow-x: scroll !important;
+  font-size: 1em !important;
+  white-space: nowrap !important;
+}
+
+/* 处理长公式 */
+.katex-display {
+  max-width: 100% !important;
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  padding: 5rpx 0 !important;
+  display: block !important;
+}
+
+/* 强制控制富文本内容宽度 */
+.katex-html, .katex-mathml {
+  max-width: 100% !important;
+  overflow-x: scroll !important;
+  display: block !important;
+}
+
+/* 限制公式渲染容器宽度 */
+.katex-display > .katex {
+  max-width: 100% !important;
+  overflow-x: scroll !important;
+  display: block !important;
+}
+
+/* 强制控制span元素 */
+.katex span {
+  max-width: 100vw !important;
+}
+
+/* 强制表格和矩阵类内容可滚动 */
+rich-text table, mrow, mtable, mtr {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* 强制所有富文本内部元素限制宽度 */
+rich-text view, rich-text div, rich-text span,
+rich-text table, rich-text tr, rich-text td,
+.mtable, .mtr, .mtd {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 针对矩阵类元素的特殊处理 */
+mrow, mtable, mtd, mi, mo, mfrac, mn, msup, msub, mtext {
+  max-width: 100vw !important;
+  display: inline-block !important;
+}
+
+/* 内联样式注入 - 为动态生成的内容添加样式 */
+page {
+  --latex-max-width: 100% !important;
+  --latex-overflow: scroll !important;
+  --latex-display: block !important;
+} 

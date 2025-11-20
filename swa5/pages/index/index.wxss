@@ -1,0 +1,148 @@
+/**index.wxss**/
+
+katex{
+  margin-bottom: 8rpx;
+}
+
+textarea {
+  border: 1px solid #eeeeee;
+  padding: 18rpx;
+  margin-bottom: 8rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container-latex {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+
+.container-latex rich-text {
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+  display: block;
+  background-color: #f9f9f9;
+  padding: 20rpx;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  overflow-x: scroll;
+  position: relative;
+}
+
+/* 长公式显示限制 */
+.container-latex .katex-display {
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+/* 滚动提示指示器 */
+.container-latex rich-text::after {
+  content: "";
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-right: 3rpx solid #ccc;
+  border-bottom: 3rpx solid #ccc;
+  transform: rotate(-45deg);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+page {
+  height: 100vh;
+  background-color: #f7f8fa;
+}
+
+.scrollarea {
+  height: 100%;
+}
+
+.container {
+  padding: 30rpx;
+}
+
+.login-tip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 12rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.tip-text {
+  font-size: 28rpx;
+  color: #646566;
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 40rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.welcome-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #323233;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.welcome-desc {
+  font-size: 28rpx;
+  color: #969799;
+  text-align: center;
+  margin-bottom: 50rpx;
+}
+
+/* 功能导航区域 */
+.feature-container {
+  margin-top: 60rpx;
+}
+
+.feature-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #323233;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.feature-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.feature-item {
+  width: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.feature-icon {
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #f5f6fa;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16rpx;
+  font-size: 50rpx;
+}
+
+.feature-name {
+  font-size: 28rpx;
+  color: #323233;
+}

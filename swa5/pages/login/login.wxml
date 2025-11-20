@@ -1,0 +1,68 @@
+<!-- pages/login/login.wxml -->
+<navigation-bar title="登录" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+
+<view class="login-container">
+  <view class="logo-wrapper">
+    <image class="logo" src="/static/images/logo.png" mode="aspectFit"></image>
+    <view class="title">学生做题系统</view>
+  </view>
+  
+  <view class="form-wrapper">
+    <!-- 邮箱输入框 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="邮箱" 
+        value="{{email}}" 
+        type="text" 
+        placeholder="请输入邮箱" 
+        hasError="{{!!emailError}}" 
+        errorMessage="{{emailError}}" 
+        bindinput="handleEmailInput" 
+        required="{{true}}"
+      />
+    </view>
+    
+    <!-- 密码输入框 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="密码" 
+        value="{{password}}" 
+        type="text" 
+        password="{{true}}" 
+        placeholder="请输入密码" 
+        hasError="{{!!passwordError}}" 
+        errorMessage="{{passwordError}}" 
+        bindinput="handlePasswordInput" 
+        required="{{true}}"
+      />
+    </view>
+    
+    <!-- 记住登录 -->
+    <view class="remember-wrapper">
+      <checkbox-group bindchange="handleRememberChange">
+        <label class="checkbox-label">
+          <checkbox value="remember" checked="{{rememberLogin}}" color="#1296db" />
+          <text>记住登录状态</text>
+        </label>
+      </checkbox-group>
+    </view>
+    
+    <!-- 登录按钮 -->
+    <view class="button-wrapper">
+      <custom-button 
+        text="登录" 
+        type="primary" 
+        block="{{true}}" 
+        disabled="{{isLoading}}" 
+        loading="{{isLoading}}" 
+        bindtap="handleLogin"
+      />
+    </view>
+    
+    <!-- 注册链接 -->
+    <view class="register-wrapper">
+      <text>还没有账号？</text>
+      <text class="register-link" bindtap="goToRegister">立即注册</text>
+    </view>
+  </view>
+</view> 

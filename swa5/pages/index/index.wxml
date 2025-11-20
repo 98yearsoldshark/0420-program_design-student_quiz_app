@@ -1,0 +1,37 @@
+<!--pages/index/index.wxml-->
+<navigation-bar title="学生做题系统" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- 未登录提示 -->
+    <view class="login-tip" wx:if="{{!isLoggedIn}}">
+      <view class="tip-text">请先登录以使用完整功能</view>
+      <custom-button text="去登录" bindtap="goToLogin" type="primary" size="small"></custom-button>
+    </view>
+    
+    <!-- 首页内容 -->
+    <view class="content">
+      <view class="welcome-title">
+        欢迎使用学生做题系统
+      </view>
+      <view class="welcome-desc">
+        这里是系统首页，功能开发中...
+      </view>
+      <view class="container-latex">
+  <rich-text nodes="{{nodes}}"></rich-text>
+  <textarea value="{{latex}}" bindinput="onInput" maxlength="1400"></textarea>
+  <button bindtap="renderLatex">渲染</button>
+</view>
+      <!-- 功能入口区域 -->
+      <view class="feature-container">
+        <view class="feature-title">功能导航</view>
+        <view class="feature-grid">
+          <view class="feature-item" bindtap="goToQuestionsList">
+            <view class="feature-icon">📚</view>
+            <view class="feature-name">题目列表</view>
+          </view>
+          <!-- 其他功能入口可以后续添加 -->
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

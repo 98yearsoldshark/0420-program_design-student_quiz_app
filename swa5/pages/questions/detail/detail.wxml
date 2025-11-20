@@ -1,0 +1,78 @@
+<!-- pages/questions/detail/detail.wxml -->
+<navigation-bar title="题目详情" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="question-card">
+      <!-- 题目基本信息 -->
+      <view class="question-header">
+        <view class="question-meta">
+          <text class="subject">{{question.subject}}</text>
+          <text class="info">{{question.grade}} {{question.year}} {{question.type}}</text>
+        </view>
+        <view class="question-id">ID: {{question.id}}</view>
+      </view>
+      
+      <!-- LaTeX题目内容 -->
+      <view class="question-content" wx:if="{{question.latex_code}}">
+        <view class="content-title">题目内容：</view>
+        <!-- 使用katex-mini渲染LaTeX公式 -->
+        <view class="latex-container">
+          <rich-text nodes="{{latexNodes}}" user-select></rich-text>
+          <!-- <view class="scroll-hint">← 滑动查看 →</view> -->
+        </view>
+      </view>
+      
+      <!-- 图片题目内容 -->
+      <view class="question-content" wx:elif="{{imagesList.length > 0}}">
+        <view class="content-title">题目内容：</view>
+        <view class="images-container">
+          <image 
+            wx:for="{{imagesList}}" 
+            wx:key="url" 
+            src="{{serverUrl}}{{item.url}}" 
+            mode="widthFix" 
+            class="question-image"
+            bindtap="previewImage"
+            data-url="{{serverUrl}}{{item.url}}"
+          ></image>
+        </view>
+      </view>
+      
+      <!-- 无内容显示 -->
+      <view class="question-content" wx:else>
+        <view class="empty-content">题目内容不可用</view>
+      </view>
+      
+      <!-- 题目答案和注解 -->
+      <view class="question-footer">
+        <view class="answer-section">
+          <text class="label">正确答案：</text>
+          <text class="value">{{question.correct_answer || '暂无'}}</text>
+        </view>
+        
+        <view class="note-section" wx:if="{{question.note}}">
+          <text class="label">注解：</text>
+          <text class="value">{{question.note}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 操作按钮 -->
+    <view class="action-buttons">
+      <custom-button 
+        buttonText="分享题目" 
+        type="primary" 
+        openType="share"
+        customClass="share-button"
+      ></custom-button>
+      
+      <custom-button 
+        buttonText="收藏题目" 
+        type="default" 
+        customClass="collect-button"
+        bindtap="handleCollect"
+      ></custom-button>
+    </view>
+  </view>
+</scroll-view> 

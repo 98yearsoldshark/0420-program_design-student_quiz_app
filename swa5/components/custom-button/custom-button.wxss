@@ -1,0 +1,126 @@
+/* components/custom-button/custom-button.wxss */
+.custom-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8rpx;
+  padding: 0 30rpx;
+  overflow: hidden;
+  height: 80rpx;
+  font-size: 28rpx;
+  transition: opacity 0.2s;
+  box-sizing: border-box;
+}
+
+.custom-button__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-button__text {
+  line-height: 1.2;
+}
+
+.custom-button__loading {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10rpx;
+}
+
+.custom-button__loading-indicator {
+  width: 32rpx;
+  height: 32rpx;
+  border: 4rpx solid;
+  border-color: currentColor currentColor currentColor transparent;
+  border-radius: 50%;
+  animation: button-loading 0.8s infinite linear;
+}
+
+/* 尺寸 */
+.custom-button--large {
+  height: 96rpx;
+  font-size: 32rpx;
+}
+
+.custom-button--normal {
+  height: 80rpx;
+  font-size: 28rpx;
+}
+
+.custom-button--small {
+  height: 64rpx;
+  font-size: 24rpx;
+  padding: 0 20rpx;
+}
+
+.custom-button--mini {
+  height: 48rpx;
+  font-size: 20rpx;
+  padding: 0 16rpx;
+}
+
+/* 宽度撑满 */
+.custom-button--block {
+  display: flex;
+  width: 100%;
+}
+
+/* 圆角 */
+.custom-button--round {
+  border-radius: 999rpx;
+}
+
+/* 主题 */
+.custom-button--primary {
+  background-color: #1296db;
+  color: white;
+  border: 2rpx solid #1296db;
+}
+
+.custom-button--success {
+  background-color: #07c160;
+  color: white;
+  border: 2rpx solid #07c160;
+}
+
+.custom-button--warning {
+  background-color: #ff976a;
+  color: white;
+  border: 2rpx solid #ff976a;
+}
+
+.custom-button--danger {
+  background-color: #ee0a24;
+  color: white;
+  border: 2rpx solid #ee0a24;
+}
+
+.custom-button--info {
+  background-color: #909399;
+  color: white;
+  border: 2rpx solid #909399;
+}
+
+.custom-button--plain {
+  background-color: white;
+  color: #323233;
+  border: 2rpx solid #ebedf0;
+}
+
+/* 禁用状态 */
+.custom-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 加载动画 */
+@keyframes button-loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 

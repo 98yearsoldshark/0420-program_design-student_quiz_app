@@ -1,0 +1,77 @@
+/* components/custom-input/custom-input.wxss */
+.custom-input {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.custom-input__container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 10rpx 0;
+}
+
+.custom-input__label {
+  font-size: 28rpx;
+  color: #333;
+  padding: 10rpx 0;
+}
+
+.custom-input__required {
+  color: #ee0a24;
+  margin-right: 4rpx;
+}
+
+.custom-input__content {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.custom-input__field {
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  color: #333;
+  background-color: transparent;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  border-bottom: 2rpx solid #ebedf0;
+}
+
+.custom-input__placeholder {
+  color: #c8c9cc;
+}
+
+.custom-input__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  background-color: #c8c9cc;
+  margin-right: 20rpx;
+}
+
+.custom-input__clear-icon {
+  color: #fff;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.custom-input__error-message {
+  font-size: 24rpx;
+  color: #ee0a24;
+  margin-top: 4rpx;
+}
+
+.custom-input--error .custom-input__field {
+  border-bottom-color: #ee0a24;
+}
+
+.custom-input--focus .custom-input__field {
+  border-bottom-color: #1296db;
+} 

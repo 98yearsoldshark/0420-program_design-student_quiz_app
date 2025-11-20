@@ -1,0 +1,33 @@
+<!-- components/custom-input/custom-input.wxml -->
+<view class="custom-input {{hasError ? 'custom-input--error' : ''}} {{isFocus ? 'custom-input--focus' : ''}}">
+  <view class="custom-input__container">
+    <view class="custom-input__label" wx:if="{{label}}">
+      <text class="custom-input__required" wx:if="{{required}}">*</text>
+      <text>{{label}}</text>
+    </view>
+    <view class="custom-input__content">
+      <input
+        class="custom-input__field"
+        value="{{value}}"
+        type="{{type}}"
+        password="{{password}}"
+        placeholder="{{placeholder}}"
+        placeholder-class="custom-input__placeholder"
+        maxlength="{{maxlength}}"
+        disabled="{{disabled}}"
+        bindinput="handleInput"
+        bindfocus="handleFocus"
+        bindblur="handleBlur"
+        bindconfirm="handleConfirm"
+        confirm-type="{{confirmType}}"
+        focus="{{focus}}"
+      />
+      <view class="custom-input__clear" wx:if="{{showClear && !disabled}}" bindtap="handleClear">
+        <view class="custom-input__clear-icon">×</view>
+      </view>
+    </view>
+  </view>
+  <view class="custom-input__error-message" wx:if="{{hasError && errorMessage}}">
+    {{errorMessage}}
+  </view>
+</view> 

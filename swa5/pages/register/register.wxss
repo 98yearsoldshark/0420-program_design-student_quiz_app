@@ -1,0 +1,43 @@
+/* pages/register/register.wxss */
+.register-container {
+  padding: 30rpx;
+  height: 100vh;
+  background-color: #f7f8fa;
+}
+
+.form-wrapper {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 30rpx;
+}
+
+.form-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.input-wrapper {
+  margin-bottom: 20rpx;
+}
+
+.button-wrapper {
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.login-link-wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #646566;
+}
+
+.login-link {
+  color: #1296db;
+  margin-left: 10rpx;
+} 
