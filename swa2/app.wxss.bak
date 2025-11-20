@@ -1,0 +1,153 @@
+/**app.wxss**/
+/* 导入 KaTeX 样式 - 等构建npm后再取消注释 */
+@import "./miniprogram_npm/@rojer/katex-mini/index.wxss";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+/* ===== LaTeX容器样式 ===== */
+
+/* 基础LaTeX容器 */
+.latex-container, .latex-preview, .container-latex rich-text {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  padding: 10rpx;
+  border-radius: 8rpx;
+  margin-bottom: 10rpx;
+  position: relative;
+  
+  /* 启用横向滚动但禁用自动换行 */
+  overflow-x: auto;
+  white-space: nowrap;
+  display: block;
+}
+
+/* 所有katex相关元素的宽度限制 */
+.katex-display, .katex {
+  display: inline-block;
+  max-width: none !important; /* 允许内容超宽但容器可滚动 */
+  overflow-x: visible;
+}
+
+/* 确保KaTeX元素显示正确 */
+katex {
+  display: inline-block;
+}
+
+/* 针对特殊方程式等结构 */
+.eqn-num, .align, .align-star {
+  display: inline-block;
+}
+
+/* 公式内部的span元素通常不需要限制 */
+rich-text view, rich-text text, rich-text span, rich-text div {
+  display: inline;
+}
+
+/* 滚动提示箭头样式 */
+.scroll-hint {
+  text-align: center;
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+/* LaTeX样式控制 */
+.latex-container, .latex-preview, .container-latex rich-text {
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+  box-sizing: border-box;
+  overflow-x: scroll;
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+}
+
+/* KaTeX 公式适配微信小程序环境 */
+katex {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* 更强力的宽度限制 */
+.katex, .katex-html, .katex-display {
+  width: auto !important;
+  max-width: 100% !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
+  overflow: hidden !important;
+}
+
+/* 处理长公式 */
+.katex-display {
+  max-width: 100% !important;
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  padding: 5rpx 0;
+}
+
+/* 强制所有内部元素宽度限制 */
+rich-text view, rich-text text, rich-text span, rich-text div {
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+/* 确保公式中的文本换行 */
+.katex {
+  font-size: 1em;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* 强制控制富文本内容宽度 */
+.katex-html, .katex-mathml {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* 限制公式渲染容器宽度 */
+.katex-display > .katex {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* 强制表格和矩阵类内容可滚动 */
+rich-text table, mrow, mtable, mtr {
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* 强制处理宽度溢出的矩阵、表格等元素 */
+.mtable, .mord, .arraycolsep, .col-align-c, mtr, mtd {
+  max-width: 100% !important;
+  overflow-x: visible !important;
+}
+
+/* 针对长方程式的特殊处理 */
+.align, .align-star, .aligned, .alignat, .matrix, .pmatrix, .cases {
+  max-width: 100% !important;
+  width: auto !important;
+  overflow-x: auto !important;
+  display: block !important;
+}
+
+/* 强制适配滚动容器 */
+.mrow {
+  max-width: 100% !important;
+  overflow-x: visible !important;
+} 

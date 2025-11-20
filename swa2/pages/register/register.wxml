@@ -1,0 +1,142 @@
+<!-- pages/register/register.wxml -->
+<navigation-bar title="注册" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+
+<scroll-view class="register-container" scroll-y>
+  <view class="form-wrapper">
+    <view class="form-title">新用户注册</view>
+    
+    <!-- 邮箱 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="邮箱" 
+        value="{{email}}" 
+        type="text" 
+        placeholder="请输入邮箱" 
+        hasError="{{!!emailError}}" 
+        errorMessage="{{emailError}}" 
+        bindinput="handleEmailInput" 
+        required="{{true}}"
+      />
+    </view>
+    
+    <!-- 密码 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="密码" 
+        value="{{password}}" 
+        type="text" 
+        password="{{true}}" 
+        placeholder="请输入密码" 
+        hasError="{{!!passwordError}}" 
+        errorMessage="{{passwordError}}" 
+        bindinput="handlePasswordInput" 
+        required="{{true}}"
+      />
+    </view>
+    
+    <!-- 确认密码 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="确认密码" 
+        value="{{confirmPassword}}" 
+        type="text" 
+        password="{{true}}" 
+        placeholder="请再次输入密码" 
+        hasError="{{!!confirmPasswordError}}" 
+        errorMessage="{{confirmPasswordError}}" 
+        bindinput="handleConfirmPasswordInput" 
+        required="{{true}}"
+      />
+    </view>
+    
+    <!-- 姓名 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="姓名" 
+        value="{{name}}" 
+        type="text" 
+        placeholder="请输入姓名" 
+        hasError="{{!!nameError}}" 
+        errorMessage="{{nameError}}" 
+        bindinput="handleNameInput" 
+        required="{{true}}"
+      />
+    </view>
+    
+    <!-- 手机号 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="手机号" 
+        value="{{phone}}" 
+        type="number" 
+        placeholder="选填" 
+        bindinput="handlePhoneInput"
+      />
+    </view>
+    
+    <!-- 学校 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="学校" 
+        value="{{school}}" 
+        type="text" 
+        placeholder="选填" 
+        bindinput="handleSchoolInput"
+      />
+    </view>
+    
+    <!-- 班级 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="班级" 
+        value="{{classNumber}}" 
+        type="text" 
+        placeholder="选填" 
+        bindinput="handleClassInput"
+      />
+    </view>
+    
+    <!-- 学号 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="学号" 
+        value="{{studentId}}" 
+        type="text" 
+        placeholder="请输入学号" 
+        hasError="{{!!studentIdError}}" 
+        errorMessage="{{studentIdError}}" 
+        bindinput="handleStudentIdInput" 
+        required="{{true}}"
+      />
+    </view>
+    
+    <!-- 微信号 -->
+    <view class="input-wrapper">
+      <custom-input 
+        label="微信号" 
+        value="{{wechat}}" 
+        type="text" 
+        placeholder="选填" 
+        bindinput="handleWechatInput"
+      />
+    </view>
+    
+    <!-- 注册按钮 -->
+    <view class="button-wrapper">
+      <custom-button 
+        text="注册" 
+        type="primary" 
+        block="{{true}}" 
+        disabled="{{isLoading}}" 
+        loading="{{isLoading}}" 
+        bindtap="handleRegister"
+      />
+    </view>
+    
+    <!-- 返回登录 -->
+    <view class="login-link-wrapper">
+      <text>已有账号？</text>
+      <text class="login-link" bindtap="goBack">返回登录</text>
+    </view>
+  </view>
+</scroll-view> 

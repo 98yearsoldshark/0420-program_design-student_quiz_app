@@ -1,0 +1,77 @@
+<!-- pages/questions/list/list.wxml -->
+<navigation-bar title="题目列表" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- 筛选区域 -->
+    <view class="filter-container">
+      <picker class="filter-item" bindchange="handleSubjectChange" value="{{subjectIndex}}" range="{{subjects}}">
+        <view class="picker-content">
+          <text class="picker-label">科目:</text>
+          <text class="picker-value">{{subjects[subjectIndex] || '全部'}}</text>
+        </view>
+      </picker>
+      <picker class="filter-item" bindchange="handleGradeChange" value="{{gradeIndex}}" range="{{grades}}">
+        <view class="picker-content">
+          <text class="picker-label">年级:</text>
+          <text class="picker-value">{{grades[gradeIndex] || '全部'}}</text>
+        </view>
+      </picker>
+      <picker class="filter-item" bindchange="handleYearChange" value="{{yearIndex}}" range="{{years}}">
+        <view class="picker-content">
+          <text class="picker-label">年份:</text>
+          <text class="picker-value">{{years[yearIndex] || '全部'}}</text>
+        </view>
+      </picker>
+      <picker class="filter-item" bindchange="handleTypeChange" value="{{typeIndex}}" range="{{types}}">
+        <view class="picker-content">
+          <text class="picker-label">类型:</text>
+          <text class="picker-value">{{types[typeIndex] || '全部'}}</text>
+        </view>
+      </picker>
+    </view>
+    
+    <!-- 题目列表 -->
+    <view class="question-list">
+      <block wx:if="{{questions.length > 0}}">
+        <view class="question-item" wx:for="{{questions}}" wx:key="id" bindtap="navigateToDetail" data-id="{{item.id}}">
+          <view class="question-info">
+            <view class="question-subject">{{item.subject}}</view>
+            <view class="question-meta">
+              <text>{{item.grade}} {{item.year}} {{item.type}}</text>
+            </view>
+          </view>
+          <view class="question-content">
+            <!-- LaTeX内容预览 -->
+            <view class="question-preview" wx:if="{{item.latex_code}}">
+              <view class="preview-label">LaTeX题目</view>
+              <!-- 使用rich-text渲染LaTeX预览 -->
+              <view class="latex-preview" wx:if="{{previewLatexMap[item.id]}}">
+                <rich-text nodes="{{previewLatexMap[item.id]}}"></rich-text>
+                <!-- <view class="scroll-hint">← 滑动查看 →</view> -->
+              </view>
+              <!-- 无法渲染时显示原始文本 -->
+              <view class="preview-text" wx:else>
+                <text>题目内容加载中...</text>
+              </view>
+            </view>
+            <!-- 图片内容 -->
+            <view class="question-preview" wx:else>
+              <text class="preview-label">图片题目</text>
+              <text class="preview-text">{{item.latex_path}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="empty-state" wx:else>
+        <text>暂无题目数据</text>
+      </view>
+    </view>
+    
+    <!-- 加载更多 -->
+    <view class="load-more" wx:if="{{hasMoreData}}">
+      <text wx:if="{{isLoading}}">加载中...</text>
+      <text wx:else bindtap="loadMoreQuestions">点击加载更多</text>
+    </view>
+  </view>
+</scroll-view> 

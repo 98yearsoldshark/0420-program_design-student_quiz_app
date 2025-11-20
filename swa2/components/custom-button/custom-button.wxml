@@ -1,0 +1,12 @@
+<!-- components/custom-button/custom-button.wxml -->
+<view 
+  class="custom-button custom-button--{{type}} custom-button--{{size}} {{block ? 'custom-button--block' : ''}} {{round ? 'custom-button--round' : ''}} {{disabled ? 'custom-button--disabled' : ''}}"
+  bindtap="handleTap"
+>
+  <view class="custom-button__content">
+    <view class="custom-button__loading" wx:if="{{loading}}">
+      <view class="custom-button__loading-indicator"></view>
+    </view>
+    <text class="custom-button__text">{{text}}</text>
+  </view>
+</view> 

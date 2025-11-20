@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# 使用中文回答
+
+# 项目介绍
+- 目前我已经完成web服务器前后端搭建，想要使用微信小程序复制前端功能，方便用户使用微信操作
+- /Users/zhangyansong/WeChatProjects/0420-程序设计-学生做题/swa2/服务器swagger文档.md 这是原项目的swagger文档，通过文档，实现一部分功能，不需要实现全部功能。
+
